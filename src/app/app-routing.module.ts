@@ -12,8 +12,10 @@ import { HolaComponent } from './componentes/hola/hola.component';
 import { HomeComponent } from './componentes/home/home.component';
 import { LoteriaComponent } from './componentes/loteria/loteria.component';
 import { MultiplicarComponent } from './componentes/multiplicar/multiplicar.component';
-import { RegistroComponent } from './componentes/registro/registro.component';
+import { RegisterComponent } from './componentes/auth/register/register.component';
 import { TuberiasComponent } from './componentes/tuberias/tuberias.component';
+import { LoginComponent } from './componentes/auth/login/login.component';
+import { PerfilComponent } from './componentes/auth/perfil/perfil.component';
 
 const routes: Routes = [
   {path: "", component:HomeComponent},
@@ -27,8 +29,10 @@ const routes: Routes = [
   {path:"formulario",component:FormularioClaseComponent},
   {path:"crudlocal",component:CrudLocalComponent},
   {path:"articulos",component:ArticulosComponent},
-  {path:"registro",component:RegistroComponent},
+  {path:"registro",component:RegisterComponent},
   {path:"crud",component:CrudComponent},
+  {path:"login", component:LoginComponent},
+  {path:"perfil", component:PerfilComponent},
   {path:"",component:HomeComponent}
 ];
 

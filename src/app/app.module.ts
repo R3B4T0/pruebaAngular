@@ -23,6 +23,9 @@ import { CrudLocalComponent } from './componentes/crud-local/crud-local.componen
 import { ArticulosComponent } from './componentes/articulos/articulos.component';
 import { RegistroComponent } from './componentes/registro/registro.component';
 import { CrudComponent } from './componentes/crud/crud.component';
+import { LoginComponent } from './componentes/auth/login/login.component';
+import { RegisterComponent } from './componentes/auth/register/register.component';
+import { PerfilComponent } from './componentes/auth/perfil/perfil.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +46,10 @@ import { CrudComponent } from './componentes/crud/crud.component';
     CrudLocalComponent,
     ArticulosComponent,
     RegistroComponent,
-    CrudComponent
+    CrudComponent,
+    LoginComponent,
+    RegisterComponent,
+    PerfilComponent
   ],
   imports: [
     BrowserModule,
