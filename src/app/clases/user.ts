@@ -7,3 +7,8 @@ export interface User {
     telefono?: number
     dni?: number
 }
+
+export interface accesoUsuario {
+    email: string
+    password: string
+}

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
+import { error } from 'protractor';
+import { UserService } from 'src/app/servicios/user.service';
 
 @Component({
   selector: 'app-login',
@@ -6,10 +9,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
-  constructor() { }
+  formLogin = this.fb.group({
+    email:['', [Validators.required, Validators.email]],
+    password:['', [Validators.required, Validators.minLength(4)]]
+  })
+  constructor(private fb:FormBuilder, private servicioUsuario:UserService) { }
 
   ngOnInit(): void {
   }
-
+  login(): void{
+    this.servicioUsuario.acceso(this.formLogin.value).subscribe(
+      respuesta => {
+        console.log(respuesta)
+        this.servicioUsuario.guardarToken(respuesta)
+      },
+      error => console.log(error)
+    )
+  }
 }

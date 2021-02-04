@@ -27,6 +27,7 @@ export class RegisterComponent implements OnInit {
       this.servicioUsuario.registrar(this.formRegister.value).subscribe(
         respuesta => {
           console.log(respuesta)
+          this.servicioUsuario.guardarToken(respuesta)
         },
         error => console.log(error)
       )
