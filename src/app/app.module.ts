@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { LOCALE_ID, NgModule } from '@angular/core';
 import "@angular/common/locales/global/es";
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -26,6 +26,7 @@ import { CrudComponent } from './componentes/crud/crud.component';
 import { LoginComponent } from './componentes/auth/login/login.component';
 import { RegisterComponent } from './componentes/auth/register/register.component';
 import { PerfilComponent } from './componentes/auth/perfil/perfil.component';
+import { EnviarTokenInterceptor } from './auth/enviar-token.interceptor';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,10 @@ import { PerfilComponent } from './componentes/auth/perfil/perfil.component';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [{provide: LOCALE_ID, useValue:"es"}],
+  providers: [
+    {provide: LOCALE_ID, useValue:"es"}, 
+    {provide: HTTP_INTERCEPTORS, useClass:EnviarTokenInterceptor, multi:true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

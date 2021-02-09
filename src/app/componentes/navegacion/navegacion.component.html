@@ -5,44 +5,51 @@
     <div class="collapse navbar-collapse" id="collapsibleNavId">
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
             <li class="nav-item ">
-                <a class="nav-link" routerLink = '/'>Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link" routerLink = '/' routerLinkActive="{{estiloActivo}}">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" routerLink = '/about'>About</a>
+                <a class="nav-link" routerLink = '/about' routerLinkActive="{{estiloActivo}}">About</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" routerLink = '/loteria'>Loteria</a>
+                <a class="nav-link" routerLink = '/loteria' routerLinkActive="{{estiloActivo}}">Loteria</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" routerLink = '/calculadora'>Calculadora</a>
+                <a class="nav-link" routerLink = '/calculadora' routerLinkActive="{{estiloActivo}}">Calculadora</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" routerLink = '/tuberias'>Tuberias</a>
+                <a class="nav-link" routerLink = '/tuberias' routerLinkActive="{{estiloActivo}}">Tuberias</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" routerLink = '/estructuras'>Estructuas</a>
+                <a class="nav-link" routerLink = '/estructuras' routerLinkActive="{{estiloActivo}}">Estructuas</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" routerLink = '/formulario'>Formulario</a>
+                <a class="nav-link" routerLink = '/formulario' routerLinkActive="{{estiloActivo}}">Formulario</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" routerLink = '/crudlocal'>Crud Local</a>
+                <a class="nav-link" routerLink = '/crudlocal' routerLinkActive="{{estiloActivo}}">Crud Local</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" routerLink = '/crud'>Crud </a>
+                <a class="nav-link" routerLink = '/crud' routerLinkActive="{{estiloActivo}}">Crud </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" routerLink = '/articulos'>Articulos</a>
+                <a class="nav-link" routerLink = '/articulos' routerLinkActive="{{estiloActivo}}">Articulos</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" routerLink = '/registro'>Registro</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" routerLink = '/login'>Login</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" routerLink = '/perfil'>Perfil</a>
-            </li>
+            <ng-template [ngIf]='!fnLogged()' [ngIfElse]='salir'>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink = '/registro' routerLinkActive="{{estiloActivo}}">Registro</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink = '/login' routerLinkActive="{{estiloActivo}}">Login</a>
+                </li>
+            </ng-template>
+            <ng-template #salir>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink='/perfil' routerLinkActive="{{estiloActivo}}">Perfil</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" (click)="doLogout()" routerLink='.'>Logout</a>
+                </li>
+            </ng-template>
        
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
