@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-sm navbar-dark bg-primary">
-    <a class="navbar-brand" href="#">Navbar</a>
+    <a class="navbar-brand" href="#">Practica Angular</a>
     <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
         aria-expanded="false" aria-label="Toggle navigation"></button>
     <div class="collapse navbar-collapse" id="collapsibleNavId">
@@ -34,31 +34,21 @@
             <li class="nav-item">
                 <a class="nav-link" routerLink = '/articulos' routerLinkActive="{{estiloActivo}}">Articulos</a>
             </li>
-            <ng-template [ngIf]='!fnLogged()' [ngIfElse]='salir'>
-                <li class="nav-item">
-                    <a class="nav-link" routerLink = '/registro' routerLinkActive="{{estiloActivo}}">Registro</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" routerLink = '/login' routerLinkActive="{{estiloActivo}}">Login</a>
-                </li>
-            </ng-template>
-            <ng-template #salir>
-                <li class="nav-item">
-                    <a class="nav-link" routerLink='/perfil' routerLinkActive="{{estiloActivo}}">Perfil</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" (click)="doLogout()" routerLink='.'>Logout</a>
-                </li>
-            </ng-template>
-       
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+        </ul>
+        <ul class="navbar-nav mt-2 mt-lg-0">
+            <li class="nav-item dropdown" routerLinkActive="{{estiloActivo}}">
+                <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Usuario</a>
                 <div class="dropdown-menu" aria-labelledby="dropdownId">
-                    <a class="dropdown-item" href="#">Action 1</a>
-                    <a class="dropdown-item" href="#">Action 2</a>
+                    <ng-template [ngIf]='!fnLogged()' [ngIfElse]='salir'>
+                        <a class="dropdown-item" routerLink = '/registro' routerLinkActive="{{estiloActivo}}">Registro</a>
+                        <a class="dropdown-item" routerLink = '/login' routerLinkActive="{{estiloActivo}}">Login</a>
+                    </ng-template>
+                    <ng-template #salir>
+                            <a class="dropdown-item" routerLink='/perfil' routerLinkActive="{{estiloActivo}}">Perfil</a>
+                            <a class="dropdown-item" (click)="doLogout()" routerLink='.'>Logout</a>
+                    </ng-template>
                 </div>
             </li>
         </ul>
-       
     </div>
 </nav>

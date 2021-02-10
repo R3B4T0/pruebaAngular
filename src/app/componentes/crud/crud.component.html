@@ -1,5 +1,5 @@
 <ul>
-    <li *ngFor="let nota of notas" (click)="notaSeleccionada=nota">{{nota.titulo}}: {{nota.contenido}}</li>
+    <li [ngClass]='{"text-white bg-dark": nota.idUser}' *ngFor="let nota of notas" (click)="nota.idUser ? formNuevo.patchValue(nota):formNuevo.reset()">{{nota.titulo}}: {{nota.contenido}}</li>
 </ul>
 <div *ngIf='creada' class="alert alert-success" role="alert">
   <h4 class="alert-heading">Nota creada correctamente</h4>
