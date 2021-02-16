@@ -6,6 +6,7 @@
         <p class="card-text">DNI: {{perfil.dni}}</p>
         <p class="card-text">Email: {{perfil.email}}</p>
         <p class="card-text">Telefono: {{perfil.telefono}}</p>
+        <img src="{{perfil.imgSrc}}" width="200px">
         <button class="btn btn-primary btn-block" (click)="mostrarEditar=!mostrarEditar">Editar</button>
         <button class="btn btn-danger btn-block" (click)="mostrarEliminar=!mostrarEliminar" >Eliminar Usuario</button>
     </div>
@@ -52,3 +53,9 @@
         <button class="btn btn-secondary btn-block" (click)="mostrarEliminar=!mostrarEliminar; inputBorrar=''">Cancelar</button>
     </div>
 </div>
+<form [formGroup]='formImagen' (ngSubmit)='subirImagen()'>
+    <input type="file" formControlName='imagen' (change)="cambiaImagen($event)">
+    <button type="submit">Subir imagen de perfil</button>
+</form>
+<input type="file" (change)='tengoFoto($event)'>
+<button type="button" (click)='subirFoto()'>Subir imagen por parametros</button>
