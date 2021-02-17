@@ -17,6 +17,7 @@ import { TuberiasComponent } from './componentes/tuberias/tuberias.component';
 import { LoginComponent } from './componentes/auth/login/login.component';
 import { PerfilComponent } from './componentes/auth/perfil/perfil.component';
 import { UserRouterGuard } from './auth/user-router.guard';
+import { ListaPerfilesComponent } from './componentes/lista-perfiles/lista-perfiles.component';
 
 const routes: Routes = [
   {path: "", component:HomeComponent},
@@ -34,6 +35,7 @@ const routes: Routes = [
   {path:"crud",component:CrudComponent},
   {path:"login", component:LoginComponent},
   {path:"perfil", component:PerfilComponent, canActivate:[UserRouterGuard]},
+  {path:"listaPerfiles", component:ListaPerfilesComponent},
   {path:"",component:HomeComponent}
 ];
 

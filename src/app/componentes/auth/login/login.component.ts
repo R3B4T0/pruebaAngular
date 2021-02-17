@@ -14,6 +14,7 @@ export class LoginComponent implements OnInit {
     email:['', [Validators.required, Validators.email]],
     password:['', [Validators.required, Validators.minLength(4)]]
   })
+  mensaje: any
   constructor(private fb:FormBuilder, private servicioUsuario:UserService, private irHacia:Router) { }
 
   ngOnInit(): void {
