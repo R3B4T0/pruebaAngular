@@ -1,3 +1,7 @@
-<input type="text"[(ngModel)]=nombre placeholder="tu nombre">
-<input type="text"[(ngModel)]=apellidos placeholder="tus apellidos">
-<button (click)="llevame()">IR</button>
+<div class="form-group">
+    <input class="form-control" type="text"[(ngModel)]=nombre placeholder="tu nombre">
+    <input class="form-control" type="text"[(ngModel)]=apellidos placeholder="tus apellidos">
+    <a name="" (click)="llevame()" id="" class="btn btn-info btn-block" role="button">IR</a>
+    <small id="helpId" class="form-text text-muted">Ruta dinámica</small>
+</div>
+
