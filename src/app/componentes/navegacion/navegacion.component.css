@@ -1,3 +1,20 @@
 * {
     font-family: 'Truculenta', sans-serif;
+    color: black;
+}
+
+.navbar {
+    background-color: #8B498C;
+}
+
+.nav-item {
+    color: black;
+}
+
+a:hover {
+    color: white;
+}
+
+a:active {
+    color: yellow;
 }
