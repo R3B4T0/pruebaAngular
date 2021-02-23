@@ -5,14 +5,14 @@
         <hr class="my-2">
         <p>More info</p>
         <p class="lead">
-        <a class="btn btn-primary btn-lg" routerLink="/about" role="button">About</a>
+        <a class="btn btn-primary btn-block btn-lg" routerLink="/about" role="button">About</a>
     </p>        
     </div>
     <div class="container">
-        <input type="text" [(ngModel)]="variable">
+        <input type="text" class="form-control" [(ngModel)]="variable">
         <h3>{{variable}}</h3>
-        <input type="number"[(ngModel)]="x">
-        <input type="number"[(ngModel)]="y">
+        <input class="form-control" type="number"[(ngModel)]="x">
+        <input type="number" class="form-control" [(ngModel)]="y">
         <h3>{{x+y}}</h3>
         <p *ngIf="x==0">el numero1 es un 0</p>
         <p *ngIf="y==0">el numero2 es un 0</p>

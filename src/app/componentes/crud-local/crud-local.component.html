@@ -14,12 +14,31 @@
         </tr>        
     </tbody>
 </table>
-<input type="text" [(ngModel)] = "notaNueva.titulo"> 
-<input type="text" [(ngModel)] = "notaNueva.contenido"> 
-<button (click)="insertarNota()">Insertar Nota</button>
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">Insertar nota</h3>
+    </div>
+    <div class="card-body">
+        <h4 class="card-title">Título</h4>
+        <input type="text" class="form-control" [(ngModel)] = "notaNueva.titulo"> 
+        <h4 class="card-title">Contenido</h4>
+        <input type="text" class="form-control" [(ngModel)] = "notaNueva.contenido"> 
+        <br>
+        <button class="btn btn-primary btn-block" (click)="insertarNota()">Insertar Nota</button>
+    </div>
+</div>
 <br>
-<input type="text" [(ngModel)]= "notaSeleccionada.titulo">
-<input type="text" [(ngModel)]= "notaSeleccionada.contenido">
-<button (click)="editarNota(notaSeleccionada)">Editar nota</button>
-<button (click)="borrarNota(notaSeleccionada)">Borrar nota</button>
-
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">Editar nota</h3>
+    </div>
+    <div class="card-body">
+        <h4 class="card-title">Título</h4>
+        <input class="form-control" type="text" [(ngModel)]= "notaSeleccionada.titulo">
+        <h4 class="card-title">Contenido</h4>
+        <input class="form-control" type="text" [(ngModel)]= "notaSeleccionada.contenido">
+        <br>
+        <button class="btn btn-success btn-block" (click)="editarNota(notaSeleccionada)">Editar nota</button>
+        <button class="btn btn-danger btn-block" (click)="borrarNota(notaSeleccionada)">Borrar nota</button>
+    </div>
+</div>

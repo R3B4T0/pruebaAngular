@@ -1,7 +1,16 @@
-<h1>Loteria</h1>
-<app-generar-loteria #numero1></app-generar-loteria>
-<app-generar-loteria #numero2></app-generar-loteria>
-{{numero1.digito}}{{numero2.digito}}
-<button (click)="numero1.obtenAleatorio();numero2.obtenAleatorio()">Dame un numero</button>
-<p  *ngIf="numero1.digito==numero2.digito;else manolito">Premiooo</p>
-<ng-template #manolito><p>SIGUE JUGANDO</p></ng-template>
+<div class="card">
+    <div class="card-header">
+        <h2 class="card-title">Lotería</h2>
+    </div>
+    <div class="card-body">
+        <app-generar-loteria #numero1></app-generar-loteria>
+        <app-generar-loteria #numero2></app-generar-loteria>
+        {{numero1.digito}}{{numero2.digito}}
+        <button class="btn btn-primary btn-block" (click)="numero1.obtenAleatorio();numero2.obtenAleatorio()">Dame un número</button>
+    </div>
+    <div class="card-footer">
+        <div class="alert alert-success" *ngIf="numero1.digito==numero2.digito;else manolito"><i class="far fa-laugh-beam"></i> PREMIOO!! ENHORABUENA! <i class="fas fa-gift"></i></div>
+        <ng-template #manolito><div class="alert alert-warning" role="alert"><i class="far fa-frown"></i> SIGUE JUGANDO <i class="far fa-frown"></i></div></ng-template>
+    </div>
+</div>
+

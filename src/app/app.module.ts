@@ -30,6 +30,8 @@ import { PerfilComponent } from './componentes/auth/perfil/perfil.component';
 import { EnviarTokenInterceptor } from './auth/enviar-token.interceptor';
 import { UsuariosComponent } from './componentes/usuarios/usuarios.component';
 import { ListaPerfilesComponent } from './componentes/lista-perfiles/lista-perfiles.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -63,7 +65,8 @@ import { ListaPerfilesComponent } from './componentes/lista-perfiles/lista-perfi
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [
     {provide: LOCALE_ID, useValue:"es"}, 

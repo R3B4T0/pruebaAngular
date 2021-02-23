@@ -26,7 +26,7 @@
 <p>Estructura For Avanzada</p>
 <ul>
     <li *ngFor = "let numero of [0,11,22,33,44,55]; let indice=index; let impar=odd; let primero=first; let ultimo=last; let cuenta=count;"
-     [ngClass]="{'text-danger':impar, 'bg-primary':primero}" (click)=muestraLog(indice,impar,primero,ultimo)>
+     [ngClass]="{'text-danger':impar, 'bg':primero}" (click)=muestraLog(indice,impar,primero,ultimo)>
         En la posicion {{indice}} de {{cuenta-1}}, que es {{impar? "impar":"par"}}  , esta el numero {{numero}}
         {{primero? "que es el pimer elemento del array":""}}{{ultimo? "que es el ultimo elemento del array":""}}
     </li>
@@ -42,7 +42,7 @@
     </thead>
     <tbody>
         <tr *ngFor = "let numero of [0,11,22,33,44,55]; let indice=index; let impar=odd; let primero=first; let ultimo=last; let cuenta=count;"
-        [ngClass]="{'text-danger':impar, 'bg-primary':primero}">            
+        [ngClass]="{'text-danger':impar, 'bg':primero}">            
             <td>{{indice}}</td>
             <td>{{impar? 'impar':'par'}}</td>
             <td>{{numero}}</td>
@@ -51,10 +51,10 @@
 </table>
 <hr>
 <input type="number" name="num1" placeholder="numero 1" [(ngModel)]=num1>
-<input type="number" name="num2" placeholder="numero 2" [(ngModel)]=num2>
 <select [(ngModel)] = "operador">
     <option *ngFor="let operacion of operaciones" [value]="operacion">{{operacion}}</option>
 </select> 
+<input type="number" name="num2" placeholder="numero 2" [(ngModel)]=num2>
 <div [ngSwitch]="operador">
     <span *ngSwitchCase = '"sumar"'>{{num1+num2}}</span>
     <span *ngSwitchCase = '"restar"'>{{num1-num2}}</span>

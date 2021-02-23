@@ -13,16 +13,41 @@
             <td>{{articulo.descripcion}}</td>
             <td>{{articulo.precio}}</td>
         </tr>
-      
     </tbody>
 </table>
-<input type="text" placeholder="Nombre del articulo" [(ngModel)] = "articuloNuevo.nombre"> 
-<input type="text" placeholder="descripcion del articulo" [(ngModel)] = "articuloNuevo.descripcion"> 
-<input type="number" placeholder="precio del articulo" [(ngModel)] = "articuloNuevo.precio"> 
-<button (click)="insertarArticulo()">Insertar Articulo</button> 
+<div class="card">
+    <div class="card-header">
+        <h4 class="card-title">Insertar nota</h4>
+    </div>
+    <div class="card-body">
+        <h4 class="card-title">Nombre del artículo</h4>
+        <input type="text" class="form-control" placeholder="Nombre del articulo" [(ngModel)] = "articuloNuevo.nombre">
+        <br>
+        <h4 class="card-title">Descripción del artículo</h4>
+        <input type="text" class="form-control" placeholder="descripcion del articulo" [(ngModel)] = "articuloNuevo.descripcion">
+        <br>
+        <h4 class="card-title">Precio del artículo</h4>
+        <input type="number" class="form-control" placeholder="precio del articulo" [(ngModel)] = "articuloNuevo.precio">
+        <br>
+        <button class="btn btn-primary btn-block" (click)="insertarArticulo()">Insertar Articulo</button> 
+    </div>
+</div>
 <br><br>
-<input type="text" placeholder="Nombre del articulo" [(ngModel)] = "articuloSeleccionado.nombre"> 
-<input type="text" placeholder="descripcion del articulo" [(ngModel)] = "articuloSeleccionado.descripcion"> 
-<input type="number" placeholder="precio del articulo" [(ngModel)] = "articuloSeleccionado.precio"> 
-<button (click)="editarArticulo(articuloSeleccionado)">Editar Articulo</button>
-<button (click)="borrarArticulo(articuloSeleccionado)">Borrar Articulo</button>
+<div class="card">
+    <div class="card-header">
+        <h4 class="card-title">Editar nota</h4>
+    </div>
+    <div class="card-body">
+        <h4 class="card-title">Nombre del articulo</h4>
+        <input type="text" class="form-control" placeholder="Nombre del articulo" [(ngModel)] = "articuloSeleccionado.nombre"> 
+        <br>
+        <h4 class="card-title">Descripción del articulo</h4>
+        <input type="text" class="form-control" placeholder="descripcion del articulo" [(ngModel)] = "articuloSeleccionado.descripcion"> 
+        <h4 class="card-title">Precio del articulo</h4>
+        <input type="number" class="form-control" placeholder="precio del articulo" [(ngModel)] = "articuloSeleccionado.precio"> 
+        <br>
+        <button class="btn btn-success btn-block" (click)="editarArticulo(articuloSeleccionado)">Editar Articulo</button>
+        <button class="btn btn-danger btn-block" (click)="borrarArticulo(articuloSeleccionado)">Borrar Articulo</button>
+    </div>
+</div>
+

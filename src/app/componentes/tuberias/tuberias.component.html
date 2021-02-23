@@ -1,11 +1,11 @@
 <body>
     <div class="card">
         <div class="card-body">
-            <h4 class="card-title">Covertir a mayusculas</h4>
+            <h4 class="card-title">Covertir a mayúsculas <i class="fas fa-arrow-up"></i></h4>
             <p class="card-text">{{usuario |uppercase}}</p>
-            <h4 class="card-title">Convertir a minusculas</h4>
+            <h4 class="card-title">Convertir a minúsculas <i class="fas fa-arrow-down"></i></h4>
             <p class="card-text">{{mes |lowercase}}</p>
-            <h4 class="card-title">La primera letra de cada palabra en mayusculas</h4>
+            <h4 class="card-title">La primera letra de cada palabra en mayúscula</h4>
             <p class="card-text">{{texto | titlecase}}</p>
             <h4 class="card-title">Fecha</h4>
             <p class="card-text">{{fecha |date}}</p>
@@ -13,9 +13,9 @@
             <p class="card-text">{{fecha |date:"dd/MM/yyyy"}}</p>
             <h4 class="card-title">Fecha</h4>
             <p class="card-text">{{fecha |date:"hh:mm:ss"}}</p>
-            <h4 class="card-title">Dinero</h4>
+            <h4 class="card-title">Dinero <i class="fas fa-euro-sign"></i><i class="fas fa-euro-sign"></i></h4>
             <p class="card-text">{{dinero |currency: "EUR"}}</p>
-            <h4 class="card-title">Numero redondeado</h4>
+            <h4 class="card-title">Número redondeado</h4>
             <p class="card-text">{{numero_pi |number:".3"}}</p>
             <h4 class="card-title">Seleccionar elementos de un array</h4>
             <p class="card-text">{{preposiciones |slice:2:5}}</p>
@@ -23,12 +23,12 @@
             <p class="card-text">{{usuarios |json}}</p>
             <h4 class="card-title">El cuadrado del 5</h4>
             <p class="card-text">{{5|numeros:"cuadrado"}}</p>
-            <h4 class="card-title">La raiz cuadrada de 81</h4>
+            <h4 class="card-title">La raíz cuadrada de <i class="fas fa-square-root-alt"></i>81</h4>
             <p class="card-text">{{81|numeros:"raiz"}}</p>
             <h4 class="card-title">Escribe 7</h4>
             <p class="card-text">{{7|numeros:"aletras"}}</p>
             <h4 class="card-title">El dni con letra es</h4>
-            <input type="number" placeholder="DNI" [(ngModel)]= "dni">
+            <input type="number" class="form-control" placeholder="DNI" [(ngModel)]= "dni">
             <p class="card-text">{{dni|dni}}</p>
         </div>
     </div>

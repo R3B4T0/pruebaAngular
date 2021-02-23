@@ -9,19 +9,21 @@
 <form [formGroup]='formNuevo'(ngSubmit)='crearNota(formNuevo.value)'>
     <input class="form-control" type="text" formControlName = "titulo" placeholder="Título..."> 
     <input class="form-control" type="text" formControlName = "contenido" placeholder="Contenido..."> 
-    <button type="submit" *ngIf='!notaSeleccionada.id; else editar' [disabled]='formNuevo.invalid'>Crear nota</button>
+    <button type="submit" class="btn btn-primary btn-block" *ngIf='!notaSeleccionada.id; else editar' [disabled]='formNuevo.invalid'>Crear nota</button>
     <ng-template #editar>
-        <button type="button" (click)='eliminarNota()' [disabled]='!notaSeleccionada'>Eliminar nota</button>
-        <button type="button" (click)='editarNota()' [disabled]='!notaSeleccionada'>Editar nota</button>
-        <button type="button" (clickl)='notaSeleccionada.id=null'>Cancelar</button>
+        <button type="button" class="btn btn-danger btn-block" (click)='eliminarNota()' [disabled]='!notaSeleccionada'>Eliminar nota</button>
+        <button type="button" class="btn btn-success btn-block" (click)='editarNota()' [disabled]='!notaSeleccionada'>Editar nota</button>
+        <button type="button" class="btn btn-secondary btn-block" (clickl)='notaSeleccionada.id=null'>Cancelar</button>
     </ng-template>
 </form>
+<br>
 <h5>Formulario con ngModel</h5>
 <div class="input-group">
-    <input type="form-control" type="text" [(ngModel)]="notaNueva.titulo" placeholder="Título">
-    <input type="form-control" type="text" [(ngModel)]="notaNueva.contenido">
+    <input class="form-control" type="text" [(ngModel)]="notaNueva.titulo" placeholder="Título">
+    <input class="form-control" type="text" [(ngModel)]="notaNueva.contenido" placeholder="Contenido">
     <button class="btn btn-primary btn-block" (click)="crearNota(notaNueva)">Insertar nota</button>
 </div>
+<br>
 <div class="input-group">
     <input (input)='buscarConRetraso()' class="form-control" type="text" [(ngModel)]="busqueda" placeholder="Buscar notas...">
 </div>
