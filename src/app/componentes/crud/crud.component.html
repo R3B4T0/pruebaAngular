@@ -4,6 +4,9 @@
 <div *ngIf='creada' class="alert alert-success" role="alert">
   <h4 class="alert-heading">Nota creada correctamente</h4>
 </div>
+<div class="alert alert-danger" role="alert" *ngIf='mensaje'>
+    <strong>{{mensaje}}</strong>
+</div>
 <br>
 <h5>Formulario con formGroup</h5>
 <form [formGroup]='formNuevo'(ngSubmit)='crearNota(formNuevo.value)'>

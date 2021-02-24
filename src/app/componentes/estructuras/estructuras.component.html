@@ -7,7 +7,7 @@
 <ng-template #mentira> <h5>Es mentira con *ngIf</h5></ng-template>
 <hr>
 <label for="edad">
-    <input type="number" id="edad" [(ngModel)]="edad">
+    <input type="number" id="edad" class="form-control" [(ngModel)]="edad">
 </label>
 <p>If-ELSE con SugarCandy</p>
 <h5 *ngIf="edad<18;else adulto">Es menor de 18 años</h5>
@@ -50,11 +50,11 @@
     </tbody>
 </table>
 <hr>
-<input type="number" name="num1" placeholder="numero 1" [(ngModel)]=num1>
-<select [(ngModel)] = "operador">
+<input type="number" class="form-control" name="num1" placeholder="numero 1" [(ngModel)]=num1>
+<select class="form-control" [(ngModel)] = "operador">
     <option *ngFor="let operacion of operaciones" [value]="operacion">{{operacion}}</option>
 </select> 
-<input type="number" name="num2" placeholder="numero 2" [(ngModel)]=num2>
+<input class="form-control" type="number" name="num2" placeholder="numero 2" [(ngModel)]=num2>
 <div [ngSwitch]="operador">
     <span *ngSwitchCase = '"sumar"'>{{num1+num2}}</span>
     <span *ngSwitchCase = '"restar"'>{{num1-num2}}</span>

@@ -1,4 +1,7 @@
 <form [formGroup]="formLogin" (submit)="login()">
+    <div class="alert alert-danger" role="alert" *ngIf='mensaje'>
+        <strong>{{mensaje}}</strong>
+    </div>
     <div class="form-row mb-1">
       <div class="form-group col-md-6">
         <label for="email">E-Mail:</label>

@@ -12,6 +12,7 @@ import { telefonoValido } from 'src/app/validaciones/validaciones';
 })
 export class PerfilComponent implements OnInit {
   perfil: User = {}
+  mensaje: string = ''
   mostrarEditar: boolean = false
   mostrarEliminar: boolean = false
   inputBorrar: string =''
@@ -38,7 +39,10 @@ export class PerfilComponent implements OnInit {
         this.perfil = respuesta
         this.formPerfil.patchValue(respuesta)
       },
-      error=>console.log(error)
+      error => {
+        console.log(error)
+        this.mensaje = error.error.error
+      }
     )
   }
 
@@ -49,7 +53,10 @@ export class PerfilComponent implements OnInit {
         this.cargarPerfil()
         this.mostrarEditar = false
       },
-      error=>console.log(error)
+      error => {
+        console.log(error)
+        this.mensaje = error.error.error
+      }
     )
   }
 
@@ -60,7 +67,10 @@ export class PerfilComponent implements OnInit {
         this.servicioUsuario.logOut()
         this.irHacia.navigate(['/login'])
       },
-      error => console.log(error)
+      error => {
+        console.log(error)
+        this.mensaje = error.error.error
+      }
     )
   }
 
@@ -78,7 +88,10 @@ export class PerfilComponent implements OnInit {
         console.log(respuesta)
         this.cargarPerfil()
       },
-      error => {console.log(error)}
+      error => {
+        console.log(error)
+        this.mensaje = error.error.error
+      }
     )
   }
 
@@ -97,7 +110,10 @@ export class PerfilComponent implements OnInit {
         console.log(respuesta)
         this.cargarPerfil()
       },
-      error => {console.log(error)}
+      error => {
+        console.log(error)
+        this.mensaje = error.error.error
+      }
     )
   }
 }

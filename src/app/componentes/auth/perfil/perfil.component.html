@@ -11,9 +11,13 @@
         <button class="btn btn-danger btn-block" (click)="mostrarEliminar=!mostrarEliminar" >Eliminar Usuario</button>
     </div>
 </div>
+<br>
 <div class="card" *ngIf='mostrarEditar'>
     <div class="card-header h5 text-center">Editar perfil</div>
     <div class="card-body">
+        <div class="alert alert-danger" role="alert" *ngIf='mensaje'>
+            <strong>{{mensaje}}</strong>
+        </div>
         <form [formGroup]="formPerfil" (submit)="editarPerfil()">
             <div class="form-row mb-1">
                 <div class="form-group col-md-3">
@@ -55,7 +59,7 @@
 </div>
 <form [formGroup]='formImagen' (ngSubmit)='subirImagen()'>
     <input type="file" formControlName='imagen' (change)="cambiaImagen($event)">
-    <button type="submit">Subir imagen de perfil</button>
+    <button type="submit" class="btn btn-primary">Subir imagen de perfil</button>
 </form>
 <input type="file" (change)='tengoFoto($event)'>
-<button type="button" (click)='subirFoto()'>Subir imagen por parametros</button>
+<button type="button" (click)='subirFoto()' class="btn btn-primary">Subir imagen por parametros</button>

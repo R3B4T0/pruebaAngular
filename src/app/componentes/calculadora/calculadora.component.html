@@ -1,3 +1,11 @@
-<input type="numer" [(ngModel)]= "num_entrada"><br>
-<a routerLink="/multiplicar/{{num_entrada}}">Mostrar la tabla de multiplicacion a traves del router link</a> <br>
-<button (click)="navegarHacia(num_entrada)">Mostrar tabla de multiplicar a traves del modulo router</button>
+<div class="card">
+    <div class="card-header">
+        <h2>Tabla de multiplicar</h2>
+    </div>
+    <div class="card-body">
+        <h4 class="card-title">Introduce el número del que quieras ver su tabla</h4>
+        <input type="numer" [(ngModel)]= "num_entrada"><br>
+        <a routerLink="/multiplicar/{{num_entrada}}">Mostrar la tabla de multiplicacion a traves del router link</a> <br>
+        <button (click)="navegarHacia(num_entrada)" class="btn btn-primary">Mostrar tabla de multiplicar a traves del modulo router</button>
+    </div>
+</div>

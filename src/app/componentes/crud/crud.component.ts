@@ -10,11 +10,11 @@ import { NotasService } from 'src/app/servicios/notas.service';
 })
 export class CrudComponent implements OnInit {
   creada: boolean = false
+  mensaje: string = ''
   temporizador: any = null
   busqueda: string
   notaSeleccionada: Note = new Note
   formNuevo: FormGroup = new FormGroup({
-    
     titulo: new FormControl('',[Validators.required]),
     contenido: new FormControl('',[Validators.required])
   })
@@ -33,7 +33,10 @@ export class CrudComponent implements OnInit {
         console.log(respuesta)
         this.notas = respuesta
       },
-      error => console.log(error)
+      error => {
+        console.log(error)
+        this.mensaje = error.error.error
+      }
     )
   }
   
@@ -46,7 +49,10 @@ export class CrudComponent implements OnInit {
         setTimeout(() => this.creada=false, 3000)
         this.obtenerNotas()
       },
-      error => {console.log(error)}
+      error => {
+        console.log(error)
+        this.mensaje = error.error.error
+      }
     )
   }
 
@@ -56,7 +62,10 @@ export class CrudComponent implements OnInit {
       this.notaSeleccionada = new Note
       this.obtenerNotas()
       },
-      error => {console.log(error)}
+      error => {
+        console.log(error)
+        this.mensaje = error.error.error
+      }
     )
   }
 
@@ -67,7 +76,10 @@ export class CrudComponent implements OnInit {
         this.notaSeleccionada = new Note
         this.obtenerNotas()
       },
-      error => {console.log(error)}
+      error => {
+        console.log(error)
+        this.mensaje = error.error.error
+      }
     )
   }
 
@@ -77,7 +89,10 @@ export class CrudComponent implements OnInit {
         console.log(respuesta)
         this.notas = respuesta
       },
-      error => console.log(error)
+      error => {
+        console.log(error)
+        this.mensaje = error.error.error
+      }
     )
   }
 

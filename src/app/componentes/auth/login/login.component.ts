@@ -30,7 +30,10 @@ export class LoginComponent implements OnInit {
         this.servicioUsuario.guardarToken(respuesta)
         this.irHacia.navigate(['/perfil'])
       },
-      error => console.log(error)
+      error => {
+        console.log(error)
+        this.mensaje = error.error.error
+      }
     )
   }
 }

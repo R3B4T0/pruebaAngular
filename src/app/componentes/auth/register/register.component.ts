@@ -19,6 +19,9 @@ export class RegisterComponent implements OnInit {
     telefono:[undefined, [telefonoValido()]],
     dni:['', [Validators.required, dniValido()]]
   })
+  tiempo: number = 7
+  creado: Boolean = false
+  mensaje: string = ''
   constructor(private fb:FormBuilder, private servicioUsuario:UserService, private irHacia:Router) { }
 
   ngOnInit(): void {
@@ -29,12 +32,26 @@ export class RegisterComponent implements OnInit {
         respuesta => {
           console.log(respuesta)
           this.servicioUsuario.guardarToken(respuesta)
-          this.irHacia.navigate(['/perfil'])
+          this.creado = true
+          this.contador()
+          setTimeout(() => this.creado = false, 6000)
         },
-        error => console.log(error)
+        error => {
+          console.log(error)
+          this.mensaje = error.error.error
+        }
       )
     } else {
       alert('Las contraseñas no coinciden')
+    }
+  }
+
+  contador(): void{
+    if(this.tiempo == 1){
+      this.irHacia.navigate(['/perfil'])
+    } else {
+      this.tiempo = this.tiempo - 1
+      setTimeout(() => this.contador(), 1000)
     }
   }
 }

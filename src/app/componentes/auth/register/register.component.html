@@ -49,6 +49,12 @@
           <div class="alert alert-success m-n2" role="alert" *ngIf="formRegister.untouched">
             <strong>Introduce los valores en el Formulario</strong>
           </div>
+          <div class="alert alert-danger m-n2" role="alert" *ngIf="mensaje && !formRegister.untouched && !creado && formRegister.valid">
+            <strong>{{mensaje}}</strong>
+          </div>
+          <div class="alert alert-success m-n2" role="alert" *ngIf='creado'>
+            <strong>Usuario creado correctamente. Se le redirigirá en {{tiempo}}</strong>
+        </div>
           <div class="alert alert-danger m-n2" role="alert" *ngIf="formRegister.invalid && formRegister.touched">
             <p>Nombre: {{formRegister.get('nombre').errors | json}}</p>
             <p>Apellidos: {{formRegister.get('apellidos').errors | json}}</p>
@@ -57,7 +63,7 @@
             <p>E-Mail: {{formRegister.get('email').errors | json}}</p>
             <p>Contraseña: {{formRegister.get('password').errors | json}}</p>
           </div>
-          <div class="alert alert-success m-n2" role="alert" *ngIf="formRegister.valid">
+          <div class="alert alert-success m-n2" role="alert" *ngIf="formRegister.valid && !mensaje">
             <strong>El formulario es valido</strong>
           </div>
         </div>
