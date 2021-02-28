@@ -16,9 +16,54 @@
         <p class="card-text">{{usuarioSel.email}}</p>
     </div>
     <div class="card-body">
-        <form [formGroup]='formMensaje' (submit)='escribirMensaje()'>
-            <input type="text" formControlName='mensaje' placeholder="escribe tu mensaje">
-            <button type="submit" [disabled]='!formMensaje.valid'>Enviar mensaje</button>
-        </form>
+        <button (click)='this.enviarMensajes=!this.enviarMensajes;' class="btn btn-primary btn-block">Enviar mensaje</button>
+        <button (click)='this.mostrarMensajes=!this.mostrarMensajes; obtenerMensajes()' type="button" class="btn btn-primary btn-block">Listar mensajes</button>
+        <div class="row" *ngIf='respuestaCreada && mensaje!=null'>
+            <div class="col">
+                <div class="alert alert-success">
+                    <p>{{mensaje}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="row" *ngIf='errorRespuesta && mensaje!=null'>
+            <div class="col">
+                <div class="alert alert-danger">
+                    <p>{{mensaje}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div *ngIf='this.mostrarMensajes' class="row my-2">
+    <div class="col">
+        <h3>Lista de mensajes</h3>
+        <table class="table">
+            <thead>
+                <tr>
+                <th></th>
+                <th>Remitente</th>
+                <th>Mensaje</th>
+                <th>Fecha</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr (click)='this.mensajeSel = mensaje' *ngFor='let mensaje of mensajes'>
+                    <td scope="row"> {{mensaje.id}} </td>
+                    <td>{{mensaje.idRemitente}}</td>
+                    <td>{{mensaje.mensaje}}</td>
+                    <td>{{mensaje.fecha}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <button *ngIf='mensajeSel!=null' (click)='borrarMensaje()' type="button" class="btn btn-danger">Borrar mensaje</button>
+        <div *ngIf='this.enviarMensajes' class="row my-2">
+            <div class="col">
+                <h3>Enviar mensaje</h3>
+                <form [formGroup]="formMensaje" (submit)="escribirMensaje()">
+                    <input class="form-control" type="text" formControlName="mensaje" placeholder="Escribe el mensaje"><br>
+                    <button class="btn btn-primary" type="submit" [disabled]="!formMensaje.valid" >Enviar Mensaje</button>
+                </form>
+            </div>
+        </div>
     </div>
 </div>
