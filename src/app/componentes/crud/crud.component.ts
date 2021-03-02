@@ -70,7 +70,7 @@ export class CrudComponent implements OnInit {
   }
 
   editarNota(): void{
-    this.servicios.editarNota(this.notaSeleccionada).subscribe(
+    this.servicios.editarNota(this.formNuevo.value).subscribe(
       respuesta =>{
         console.log(respuesta)
         this.notaSeleccionada = new Note

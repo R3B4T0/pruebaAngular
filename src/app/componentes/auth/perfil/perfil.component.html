@@ -1,12 +1,17 @@
 <div class="card">
     <div class="card-header h5 text-center">Tu perfil</div>
     <div class="card-body">
+        <div class="alert alert-success" role="alert" *ngIf="actualizado">
+            <strong>Perfil actualizado!</strong>
+            <br>
+        </div>
         <p class="card-text">Nombre: {{perfil.nombre}}</p>
         <p class="card-text">Apellidos: {{perfil.apellidos}}</p>
         <p class="card-text">DNI: {{perfil.dni}}</p>
         <p class="card-text">Email: {{perfil.email}}</p>
         <p class="card-text">Telefono: {{perfil.telefono}}</p>
         <img src="{{perfil.imgSrc}}" width="200px">
+        <br>
         <button class="btn btn-primary btn-block" (click)="mostrarEditar=!mostrarEditar">Editar</button>
         <button class="btn btn-danger btn-block" (click)="mostrarEliminar=!mostrarEliminar" >Eliminar Usuario</button>
     </div>
@@ -40,13 +45,13 @@
                 </div>
                 <div class="form-group col-md-3">
                     <label for="password">Contraseña:</label>
-                    <input class="form-control" type="text" placeholder="Contraseña" id="password" formControlName="password">
+                    <input class="form-control" type="password" placeholder="Contraseña" id="password" formControlName="password">
                 </div>
             </div>
             <button class="btn btn-success btn-block" type ="submit" [disabled]="!formPerfil.valid">Guardar cambios</button>
         </form>
         <br>
-        <button class="btn btn-secondary btn-block" (click)="mostrarEditar=!mostrarEditar">Cancelar</button>
+        <button class="btn btn-secondary btn-block" (click)="mostrarEditar=!mostrarEditar;formPerfil.patchValue(perfil)">Cancelar</button>
     </div>
 </div>
 <div class="card" *ngIf='mostrarEliminar'>

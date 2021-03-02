@@ -15,7 +15,8 @@ export class PerfilComponent implements OnInit {
   mensaje: string = ''
   mostrarEditar: boolean = false
   mostrarEliminar: boolean = false
-  inputBorrar: string =''
+  inputBorrar: string = ''
+  actualizado: boolean = false
   formPerfil = this.fb.group({
     nombre:[''],
     apellidos:[''],
@@ -52,6 +53,8 @@ export class PerfilComponent implements OnInit {
         console.log(respuesta)
         this.cargarPerfil()
         this.mostrarEditar = false
+        this.actualizado = true
+        setTimeout(() => {this.actualizado = false}, 3000)
       },
       error => {
         console.log(error)
@@ -87,6 +90,8 @@ export class PerfilComponent implements OnInit {
       respuesta => {
         console.log(respuesta)
         this.cargarPerfil()
+        this.actualizado = true
+        setTimeout(() => {this.actualizado = false}, 3000)
       },
       error => {
         console.log(error)
@@ -109,6 +114,8 @@ export class PerfilComponent implements OnInit {
       respuesta => {
         console.log(respuesta)
         this.cargarPerfil()
+        this.actualizado = true
+        setTimeout(() => {this.actualizado = false}, 3000)
       },
       error => {
         console.log(error)
