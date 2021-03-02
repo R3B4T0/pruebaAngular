@@ -18,6 +18,8 @@ import { LoginComponent } from './componentes/auth/login/login.component';
 import { PerfilComponent } from './componentes/auth/perfil/perfil.component';
 import { UserRouterGuard } from './auth/user-router.guard';
 import { ListaPerfilesComponent } from './componentes/lista-perfiles/lista-perfiles.component';
+import { GraficaComponent } from './componentes/grafica/grafica.component';
+import { MapaComponent } from './componentes/mapa/mapa.component';
 
 const routes: Routes = [
   {path: "", component:HomeComponent},
@@ -36,6 +38,8 @@ const routes: Routes = [
   {path:"login", component:LoginComponent},
   {path:"perfil", component:PerfilComponent, canActivate:[UserRouterGuard]},
   {path:"listaPerfiles", component:ListaPerfilesComponent},
+  {path:"grafica", component:GraficaComponent},
+  {path:"mapa", component:MapaComponent},
   {path:"",component:HomeComponent}
 ];
 

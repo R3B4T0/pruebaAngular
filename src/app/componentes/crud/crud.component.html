@@ -14,9 +14,11 @@
     <input class="form-control" type="text" formControlName = "contenido" placeholder="Contenido..."> 
     <button type="submit" class="btn btn-primary btn-block" *ngIf='!formNuevo.value.id; else editar' [disabled]='formNuevo.invalid'>Crear nota</button>
     <ng-template #editar>
-        <button type="button" class="btn btn-danger btn-block" (click)='eliminarNota()' [disabled]='!formNuevo.value.id'>Eliminar nota</button>
-        <button type="button" class="btn btn-success btn-block" (click)='editarNota()' [disabled]='formNuevo.invalid'>Editar nota</button>
-        <button type="button" class="btn btn-secondary btn-block" (clickl)='formNuevo.reset()'>Cancelar</button>
+        <div class="btn-group btn-block">
+            <button type="button" class="btn btn-danger btn-block" (click)='eliminarNota()' [disabled]='!formNuevo.value.id'>Eliminar nota</button>
+            <button type="button" class="btn btn-success btn-block" (click)='editarNota()' [disabled]='formNuevo.invalid'>Editar nota</button>
+            <button type="button" class="btn btn-secondary btn-block" (click)='formNuevo.reset()'>Cancelar</button>
+        </div>
     </ng-template>
 </form>
 <br>
